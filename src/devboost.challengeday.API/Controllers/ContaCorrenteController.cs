@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using devboost.challengeday.Domain.Commands.Request;
 using Microsoft.AspNetCore.Mvc;
 
 namespace devboost.challengeday.API.Controllers
@@ -17,13 +18,13 @@ namespace devboost.challengeday.API.Controllers
         }
 
         [HttpPost("depositar")]
-        public async Task<ActionResult> depositar()
+        public async Task<ActionResult> depositar([FromBody] ContaCorrenteRequest contaCorrenteRequest)
         {
             return Ok("deposito efetuado");
         }
 
         [HttpPost("sacar")]
-        public async Task<ActionResult> sacar()
+        public async Task<ActionResult> sacar([FromBody] ContaCorrenteRequest contaCorrenteRequest)
         {
             return Ok("deposito efetuado");
         }
