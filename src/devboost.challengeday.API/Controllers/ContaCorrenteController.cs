@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using devboost.challengeday.Domain.Commands.Request;
-using devboost.challengeday.Domain.Interfaces;
+﻿using devboost.challengeday.Domain.Commands.Request;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace devboost.challengeday.API.Controllers
 {
@@ -12,13 +8,6 @@ namespace devboost.challengeday.API.Controllers
     [ApiController]
     public class ContaCorrenteController : ControllerBase
     {
-        readonly IContaCorrenteHandler _contaCorrenteHandler;
-
-        public ContaCorrenteController(IContaCorrenteHandler contaCorrenteHandler)
-        {
-            _contaCorrenteHandler = contaCorrenteHandler;
-        }
-
         [HttpGet]
         public async Task<ActionResult> Get()
         {
