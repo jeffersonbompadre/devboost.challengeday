@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using devboost.challengeday.Domain.Handler.Command;
+using devboost.challengeday.Domain.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +28,7 @@ namespace devboost.challengeday.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<IContaCorrenteHandler, ContaCorrenteHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
