@@ -5,7 +5,7 @@ namespace devboost.challengeday.Domain.Models
 {
     public class ContaCorrente : Entidade
     {
-        public DateTime DAtaHora { get; set; }
+        public DateTime DataHora { get; set; }
         public decimal Valor { get; set; }
         public TipoTransacao Tipo { get; set; }
     }
