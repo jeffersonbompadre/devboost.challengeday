@@ -18,13 +18,13 @@ namespace devboost.challengeday.API.Controllers
         }
 
         [HttpPost("depositar")]
-        public async Task<ActionResult> depositar([FromBody] ContaCorrenteRequest contaCorrenteRequest)
+        public async Task<ActionResult> Depositar([FromBody] ContaCorrenteRequest contaCorrenteRequest)
         {
             return Ok("deposito efetuado");
         }
 
         [HttpPost("sacar")]
-        public async Task<ActionResult> sacar([FromBody] ContaCorrenteRequest contaCorrenteRequest)
+        public async Task<ActionResult> Sacar([FromBody] ContaCorrenteRequest contaCorrenteRequest)
         {
             return Ok("deposito efetuado");
         }
