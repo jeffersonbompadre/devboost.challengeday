@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace devboost.challengeday.Domain.Interfaces
 {
-    public interface IContaCorrenteServico : IRepository<ContaCorrente>
+    public interface IContaCorrenteServico
     {
         Task Deposito(ContaCorrente contaCorrente);
         Task Saque(ContaCorrente contaCorrente);
