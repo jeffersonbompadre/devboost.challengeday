@@ -3,7 +3,7 @@ using System;
 
 namespace devboost.challengeday.Domain.Models
 {
-    public class ContaCorrente
+    public class ContaCorrente : Entidade
     {
         public DateTime DAtaHora { get; set; }
         public decimal Valor { get; set; }
