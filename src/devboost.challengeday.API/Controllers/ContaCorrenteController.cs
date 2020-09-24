@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using devboost.challengeday.Domain.Commands.Request;
+﻿using devboost.challengeday.Domain.Commands.Request;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace devboost.challengeday.API.Controllers
 {
