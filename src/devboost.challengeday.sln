@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Producer", "Producer", "{07
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devboost.challengeday.IoC", "devboost.challengeday.IoC\devboost.challengeday.IoC.csproj", "{2DD2E20F-5315-4A21-B05E-2E06C1C72207}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devboost.challengeday.Kafka", "devboost.challengeday.Kafka\devboost.challengeday.Kafka.csproj", "{81172C79-4934-48C0-9144-1CE6606AFE41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{A6F199B8-DE8F-4748-8187-213278ACC72F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6F199B8-DE8F-4748-8187-213278ACC72F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6F199B8-DE8F-4748-8187-213278ACC72F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81172C79-4934-48C0-9144-1CE6606AFE41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81172C79-4934-48C0-9144-1CE6606AFE41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81172C79-4934-48C0-9144-1CE6606AFE41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81172C79-4934-48C0-9144-1CE6606AFE41}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2DD2E20F-5315-4A21-B05E-2E06C1C72207}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2DD2E20F-5315-4A21-B05E-2E06C1C72207}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DD2E20F-5315-4A21-B05E-2E06C1C72207}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -62,6 +68,7 @@ Global
 		{4FE0DF13-FDEA-4790-954D-0FCF6C4E20DC} = {64874A93-1E55-46E1-82F0-09BD261409B3}
 		{A6F199B8-DE8F-4748-8187-213278ACC72F} = {07ECA594-8BBB-452B-94A7-F41D23B9F15C}
 		{2DD2E20F-5315-4A21-B05E-2E06C1C72207} = {64874A93-1E55-46E1-82F0-09BD261409B3}
+		{81172C79-4934-48C0-9144-1CE6606AFE41} = {A7B4B385-3C11-4A9F-B222-943D5EA27D1A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3A673E55-3750-4738-941A-F2A493158FE1}

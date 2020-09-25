@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-
+    using devboost.challengeday.Domain.Commands.Request;
     using devboost.challengeday.Domain.Interfaces;
     using devboost.challengeday.Domain.Models;
     using devboost.challengeday.Infra.DataModels;
@@ -34,9 +34,9 @@
         /// <param name="database">
         /// The database.
         /// </param>
-        public ContaCorrenteRepositorio(IMongoDatabase database)
+        public ContaCorrenteRepositorio()
         {
-            _ContaCorrenteCollection = database.GetCollection<ContaCorrenteDataModel>("Pedido"); ;
+            //_ContaCorrenteCollection = database.GetCollection<ContaCorrenteDataModel>("Pedido"); ;
         }
 
         /// <summary>
@@ -47,9 +47,10 @@
         /// </returns>
         public async Task<List<ContaCorrente>> GetAll()
         {
-            var list = await _ContaCorrenteCollection.Find(_ => true).ToListAsync();
+            //var list = await _ContaCorrenteCollection.Find(_ => true).ToListAsync();
 
-            return list.ConvertTo<List<ContaCorrente>>();
+            //return list.ConvertTo<List<ContaCorrente>>();
+            return null;
         }
 
         /// <summary>
@@ -63,13 +64,14 @@
         /// </returns>
         public async Task<ContaCorrente> GetById(Guid id)
         {
-            var bsonId = new BsonBinaryData(id);
+            //var bsonId = new BsonBinaryData(id);
 
-            var filter = _filterDef.Eq(_ => _.Id, bsonId);
+            //var filter = _filterDef.Eq(_ => _.Id, bsonId);
 
-            var p = (await _ContaCorrenteCollection.FindAsync(filter)).FirstOrDefault();
+            //var p = (await _ContaCorrenteCollection.FindAsync(filter)).FirstOrDefault();
 
-            return p.ConvertTo<ContaCorrente>();
+            //return p.ConvertTo<ContaCorrente>();
+            return null;
         }
 
         /// <summary>
@@ -81,13 +83,14 @@
         /// <returns>
         /// The <see cref="Task"/>.
         /// </returns>
-        public async Task<ContaCorrente> Save(ContaCorrente contaCorrente)
+        public async Task<ContaCorrente> Save(ContaCorrenteRequest contaCorrente)
         {
             var model = contaCorrente.ConvertTo<ContaCorrenteDataModel>();
 
 
-            await _ContaCorrenteCollection.InsertOneAsync(model);
-            return model.ConvertTo<ContaCorrente>();
+            //await _ContaCorrenteCollection.InsertOneAsync(model);
+            //return model.ConvertTo<ContaCorrente>();
+            return null;
         }
     }
 }

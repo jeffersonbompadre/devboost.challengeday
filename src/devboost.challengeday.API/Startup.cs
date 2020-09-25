@@ -1,6 +1,7 @@
 using devboost.challengeday.API.Common.Configurations;
 using devboost.challengeday.Domain.Handler.Command;
 using devboost.challengeday.Domain.Interfaces;
+using devboost.challengeday.Infra.Repositorios;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
