@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 
 namespace devboost.challengeday.ProducerAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    [ApiVersion("1.0")]
     public class EnviarOperacaoController : ControllerBase
     {
         private readonly IKafkaProducer _produce;
