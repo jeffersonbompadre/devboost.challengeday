@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-
+    using devboost.challengeday.Domain.Commands.Request;
     using devboost.challengeday.Domain.Interfaces;
     using devboost.challengeday.Domain.Models;
     using devboost.challengeday.Infra.DataModels;
@@ -81,7 +81,7 @@
         /// <returns>
         /// The <see cref="Task"/>.
         /// </returns>
-        public async Task<ContaCorrente> Save(ContaCorrente contaCorrente)
+        public async Task<ContaCorrente> Save(ContaCorrenteRequest contaCorrente)
         {
             var model = contaCorrente.ConvertTo<ContaCorrenteDataModel>();
 

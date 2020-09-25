@@ -2,6 +2,7 @@
 using devboost.challengeday.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,14 +17,17 @@ namespace devboost.challengeday.Domain.Handler.Command
             _contaCorrenteRepositorio = contaCorrenteRepositorio;
         }
 
-        public Task<decimal> Saldo()
+        public async Task<decimal> Saldo()
         {
-            throw new NotImplementedException();
+            var contaCorrentes = await _contaCorrenteRepositorio.GetAll();
+            var valor = contaCorrentes.Select(x => x.Valor).FirstOrDefault();
+
+            return valor;
         }
 
-        public Task DepositarValor(ContaCorrenteRequest contaCorrente)
+        public async Task DepositarValor(ContaCorrenteRequest contaCorrente)
         {
-            throw new NotImplementedException();
+            var result = await _contaCorrenteRepositorio.Save(contaCorrente);
         }
 
         public Task SacarValor(ContaCorrenteRequest contaCorrente)
