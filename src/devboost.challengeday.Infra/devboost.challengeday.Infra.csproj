@@ -1,11 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemDefinitionGroup>
+    <PackageReference>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <ProjectReference>
+      <PrivateAssets>all</PrivateAssets>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+
   <ItemGroup>
-    <PackageReference Include="MongoDB.Driver" Version="2.3.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.11.2" />
     <PackageReference Include="ServiceStack.Text" Version="5.9.2" />
   </ItemGroup>
 

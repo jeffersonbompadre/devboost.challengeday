@@ -5,6 +5,6 @@ namespace devboost.challengeday.Services.Kafka.Interfaces
 {
     public interface IKafkaProducer
     {
-        Task Operacao(ContaCorrenteRequest contaCorrenteRequest);
+        Task Operacao(OperacaoRequest operacaoRequest);
     }
 }

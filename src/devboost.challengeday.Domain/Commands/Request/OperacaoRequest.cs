@@ -1,12 +1,13 @@
 ﻿using devboost.challengeday.Domain.Enum;
 using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace devboost.challengeday.Domain.Models
+namespace devboost.challengeday.Domain.Commands.Request
 {
-    public class ContaCorrente : Entidade
+    public class OperacaoRequest
     {
         public DateTime DataHora { get; set; }
         public decimal Valor { get; set; }
-        public TipoTransacao Tipo { get; set; }
     }
 }

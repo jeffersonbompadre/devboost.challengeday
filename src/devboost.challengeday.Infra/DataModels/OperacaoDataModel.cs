@@ -8,9 +8,9 @@
     using MongoDB.Bson.Serialization.IdGenerators;
 
     /// <summary>
-    /// The conta corrente data model.
+    /// The Bank transaction data model.
     /// </summary>
-    public class ContaCorrenteDataModel
+    public class OperacaoDataModel
     {
         /// <summary>
         /// Gets or sets the id.
@@ -23,19 +23,19 @@
         /// <summary>
         /// Gets or sets the data hora.
         /// </summary>
-        [BsonElement]
+        [BsonElement("dataHora")]
         public DateTime? DataHora { get; set; }
         
         /// <summary>
         /// Gets or sets the valor.
         /// </summary>
-        [BsonElement]
+        [BsonElement("valor")]
         public decimal Valor { get; set; }
 
         /// <summary>
         /// Gets or sets the tipo.
         /// </summary>
-        [BsonElement]
+        [BsonElement("tipo")]
         public TipoTransacao Tipo { get; set; }
     }
 }

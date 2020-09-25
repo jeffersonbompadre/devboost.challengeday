@@ -16,9 +16,9 @@ namespace devboost.challengeday.ProducerAPI.Controllers
         }
 
         [HttpPost("Operecao")]
-        public async Task<ActionResult> Operecao([FromBody] ContaCorrenteRequest contaCorrenteRequest)
+        public async Task<ActionResult> Operecao([FromBody] OperacaoRequest operacaoRequest)
         {
-            await _produce.Operacao(contaCorrenteRequest);
+            await _produce.Operacao(operacaoRequest);
             return Ok("deposito efetuado");
         }
     }

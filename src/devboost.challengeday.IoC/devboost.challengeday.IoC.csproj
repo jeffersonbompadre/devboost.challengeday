@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
 
@@ -17,8 +17,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.1.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.3.0" />
   </ItemGroup>
@@ -27,6 +27,7 @@
   <ItemGroup>
     <ProjectReference Include="..\devboost.challengeday.Domain\devboost.challengeday.Domain.csproj" />
     <ProjectReference Include="..\devboost.challengeday.Infra\devboost.challengeday.Infra.csproj" />
+    <ProjectReference Include="..\devboost.challengeday.Services\devboost.challengeday.Services.csproj" />
   </ItemGroup>
 
 </Project>

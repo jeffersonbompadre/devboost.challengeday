@@ -8,6 +8,6 @@ namespace devboost.challengeday.Kafka.Interfaces
 {
     public interface ITransactionHttpFactory
     {
-        Task<bool> Trasaction(ContaCorrenteRequest contacorrenteRequest);
+        Task<bool> Trasaction(OperacaoRequest contacorrenteRequest);
     }
 }

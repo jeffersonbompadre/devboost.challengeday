@@ -9,7 +9,7 @@ namespace devboost.challengeday.Services.Kafka
 {
     public class KafkaProducer : IKafkaProducer
     {
-        public async Task Operacao(ContaCorrenteRequest contaCorrenteRequest)
+        public async Task Operacao(OperacaoRequest operacaoRequest)
         {
             const string bootstrapServers = "localhost:9092";
             const string nomeTopic = "financial-operation-request";
@@ -28,7 +28,7 @@ namespace devboost.challengeday.Services.Kafka
                         nomeTopic,
                         new Message<Null, string>
                         { 
-                            Value = ConvertPedidoToJson(contaCorrenteRequest)
+                            Value = ConvertPedidoToJson(operacaoRequest)
                         });
                     Console.WriteLine(
                         $"Mensagem: {payload} | " +
@@ -41,7 +41,7 @@ namespace devboost.challengeday.Services.Kafka
             }
         }
 
-        private string ConvertPedidoToJson(ContaCorrenteRequest contaCorrenteRequest) =>
-            JsonConvert.SerializeObject(contaCorrenteRequest);
+        private string ConvertPedidoToJson(OperacaoRequest operacaoRequest) =>
+            JsonConvert.SerializeObject(operacaoRequest);
     }
 }

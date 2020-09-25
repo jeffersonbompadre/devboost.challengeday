@@ -15,7 +15,7 @@ namespace devboost.challengeday.Kafka.Services
             _client = factory.CreateClient("contacorrente");
         }
 
-        public async Task<bool> Trasaction(ContaCorrenteRequest contacorrenteRequest)
+        public async Task<bool> Trasaction(OperacaoRequest contacorrenteRequest)
         {
             var response = await _client.PostAsJsonAsync("/api/operacao", contacorrenteRequest);
             return response.EnsureSuccessStatusCode().IsSuccessStatusCode;

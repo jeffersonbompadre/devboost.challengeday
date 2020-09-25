@@ -48,7 +48,7 @@ namespace devboost.challengeday.Kafka.Services
                     {
                         var cr = consumer.Consume(cts.Token);
 
-                        var @event = JsonConvert.DeserializeObject<ContaCorrenteRequest>(cr.Message.Value);
+                        var @event = JsonConvert.DeserializeObject<OperacaoRequest>(cr.Message.Value);
 
                        await  _transactionHttpFactory.Trasaction(@event);
                         

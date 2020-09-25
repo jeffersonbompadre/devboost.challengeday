@@ -1,9 +1,8 @@
 ﻿namespace devboost.challengeday.IoC
 {
-    using devboost.challengeday.Domain.Handler.Command;
     using devboost.challengeday.Domain.Interfaces;
     using devboost.challengeday.Infra.Repositorios;
-
+    using devboost.challengeday.Services;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
 
@@ -14,10 +13,8 @@
         public static IServiceCollection ResolveDependencies(this IServiceCollection services, IConfiguration config)
         {
 
-
-            services.AddScoped<IContaCorrenteHandler, ContaCorrenteHandler>();
-            services.AddScoped<IContaCorrenteRepositorio, ContaCorrenteRepositorio>();
-            //services.AddScoped<IContaCorrenteServico, ContaCorrenteServico>();
+            services.AddScoped<IOperacaoRepository, OperacaoRepository>();
+            services.AddScoped<IOperacaoService, OperacaoService>();
             services.AddTransient((mongo) =>
             {
                 var database = config.GetValue<string>("MONGO_DATABASE");
