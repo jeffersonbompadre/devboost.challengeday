@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devboost.challengeday.Domain", "devboost.challengeday.Domain\devboost.challengeday.Domain.csproj", "{8BEC7886-5760-438B-A77E-98AA353CC0B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devboost.challengeday.Domain", "devboost.challengeday.Domain\devboost.challengeday.Domain.csproj", "{8BEC7886-5760-438B-A77E-98AA353CC0B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devboost.challengeday.Infra", "devboost.challengeday.Infra\devboost.challengeday.Infra.csproj", "{1071E1C8-BB12-4889-8D71-F5D3D5FAA991}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devboost.challengeday.Infra", "devboost.challengeday.Infra\devboost.challengeday.Infra.csproj", "{1071E1C8-BB12-4889-8D71-F5D3D5FAA991}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devboost.challengeday.API", "devboost.challengeday.API\devboost.challengeday.API.csproj", "{A0F2D733-5975-4D87-A5DD-B21FBE7A46AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devboost.challengeday.API", "devboost.challengeday.API\devboost.challengeday.API.csproj", "{A0F2D733-5975-4D87-A5DD-B21FBE7A46AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devboost.challengeday.Services", "devboost.challengeday.Services\devboost.challengeday.Services.csproj", "{4FE0DF13-FDEA-4790-954D-0FCF6C4E20DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devboost.challengeday.Services", "devboost.challengeday.Services\devboost.challengeday.Services.csproj", "{4FE0DF13-FDEA-4790-954D-0FCF6C4E20DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devboost.challengeday.Kafka", "devboost.challengeday.Kafka\devboost.challengeday.Kafka.csproj", "{8A5AE38F-26BD-4147-884D-2749FFAF8315}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4FE0DF13-FDEA-4790-954D-0FCF6C4E20DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FE0DF13-FDEA-4790-954D-0FCF6C4E20DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FE0DF13-FDEA-4790-954D-0FCF6C4E20DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A5AE38F-26BD-4147-884D-2749FFAF8315}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A5AE38F-26BD-4147-884D-2749FFAF8315}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A5AE38F-26BD-4147-884D-2749FFAF8315}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A5AE38F-26BD-4147-884D-2749FFAF8315}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
