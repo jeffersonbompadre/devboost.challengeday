@@ -16,7 +16,7 @@ namespace devboost.challengeday.ProducerAPI.Controllers
             this.produce = produce;
         }
 
-        [HttpPost("operecao")]
+        [HttpPost("Operecao")]
         public async Task<ActionResult> Operecao([FromBody] ContaCorrenteRequest contaCorrenteRequest)
         {
             await this.produce.Operacao(contaCorrenteRequest);
