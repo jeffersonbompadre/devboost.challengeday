@@ -3,10 +3,13 @@ using System.Threading.Tasks;
 
 namespace devboost.challengeday.Domain.Interfaces
 {
+    using System;
+    using System.Collections.Generic;
+
     public interface IContaCorrenteRepositorio
     {
-        Task Deposito(ContaCorrente contaCorrente);
-        Task Saque(ContaCorrente contaCorrente);
-        Task<decimal> Saldo(ContaCorrente contaCorrente);
+        Task<List<ContaCorrente>> GetAll();
+        Task<ContaCorrente> GetById(Guid id);
+        Task<ContaCorrente> Save(ContaCorrente contaCorrente);
     }
 }
