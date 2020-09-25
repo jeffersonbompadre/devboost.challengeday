@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using devboost.challengeday.Kafka.Config;
 using devboost.challengeday.Kafka.Interfaces;
@@ -20,12 +21,13 @@ namespace devboost.challengeday.Kafka
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
-                {
+                {                
+                    services.Configure<KafkaConfig>(hostContext.Configuration.GetSection("Kafka"));
                     services.AddHttpClient();
                     services.AddHostedService<Worker>();
-                    services.AddSingleton<KafkaConfig>();
                     services.AddScoped<IConsumer,Consumer>();
                     services.AddScoped<ITransactionHttpFactory,TransactionHttpFactory>();
+
                 });
     }
 }

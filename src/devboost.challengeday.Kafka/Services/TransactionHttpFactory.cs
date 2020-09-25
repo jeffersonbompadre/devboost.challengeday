@@ -17,7 +17,7 @@ namespace devboost.challengeday.Kafka.Services
 
         public async Task<bool> Trasaction(ContaCorrenteRequest contacorrenteRequest)
         {
-            var response = await _client.PostAsJsonAsync("/api/pedidos", contacorrenteRequest);
+            var response = await _client.PostAsJsonAsync("/api/operacao", contacorrenteRequest);
             return response.EnsureSuccessStatusCode().IsSuccessStatusCode;
         }
     }

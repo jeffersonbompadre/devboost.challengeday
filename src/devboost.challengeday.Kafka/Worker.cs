@@ -26,16 +26,8 @@ namespace devboost.challengeday.Kafka
             while (!stoppingToken.IsCancellationRequested)
             {
 
-                Console.WriteLine(""); Console.WriteLine("");
-                Console.WriteLine("Consumindo mensagens com o Kafka");
-                Console.WriteLine("");
-                Console.WriteLine("");
-                const string bootstrapServers = "localhost:9092";
-                const string nomeTopic = "financial-operation-request";
-                Console.WriteLine($"BootstrapServers = {bootstrapServers}");
-                Console.WriteLine($"Topic = {nomeTopic}");
-
-             
+                _logger.LogInformation("Consumindo mensagens com o Kafka");
+                           
                 CancellationTokenSource cts = new CancellationTokenSource();
                 Console.CancelKeyPress += (_, e) =>
                 {
@@ -44,9 +36,11 @@ namespace devboost.challengeday.Kafka
                 };
 
                 await _consumer.Publish();
-                                                  
+                              
                 await Task.Delay(1000, stoppingToken);
             }
+
+            _logger.LogInformation("Finalisando mensagens com o Kafka");
         }
     }
 }
