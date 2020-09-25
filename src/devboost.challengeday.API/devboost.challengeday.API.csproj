@@ -7,12 +7,14 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="4.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="4.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.7" />
     <PackageReference Include="MongoDB.Driver" Version="2.3.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\devboost.challengeday.Domain\devboost.challengeday.Domain.csproj" />
+    <ProjectReference Include="..\devboost.challengeday.IoC\devboost.challengeday.IoC.csproj" />
   </ItemGroup>
 
 

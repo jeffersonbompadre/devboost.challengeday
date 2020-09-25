@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consumer", "Consumer", "{A7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Producer", "Producer", "{07ECA594-8BBB-452B-94A7-F41D23B9F15C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devboost.challengeday.IoC", "devboost.challengeday.IoC\devboost.challengeday.IoC.csproj", "{2DD2E20F-5315-4A21-B05E-2E06C1C72207}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{A6F199B8-DE8F-4748-8187-213278ACC72F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6F199B8-DE8F-4748-8187-213278ACC72F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6F199B8-DE8F-4748-8187-213278ACC72F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DD2E20F-5315-4A21-B05E-2E06C1C72207}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DD2E20F-5315-4A21-B05E-2E06C1C72207}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DD2E20F-5315-4A21-B05E-2E06C1C72207}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DD2E20F-5315-4A21-B05E-2E06C1C72207}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{A0F2D733-5975-4D87-A5DD-B21FBE7A46AA} = {64874A93-1E55-46E1-82F0-09BD261409B3}
 		{4FE0DF13-FDEA-4790-954D-0FCF6C4E20DC} = {64874A93-1E55-46E1-82F0-09BD261409B3}
 		{A6F199B8-DE8F-4748-8187-213278ACC72F} = {07ECA594-8BBB-452B-94A7-F41D23B9F15C}
+		{2DD2E20F-5315-4A21-B05E-2E06C1C72207} = {64874A93-1E55-46E1-82F0-09BD261409B3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3A673E55-3750-4738-941A-F2A493158FE1}
