@@ -1,9 +1,9 @@
 ﻿using devboost.challengeday.Domain.Commands.Request;
 using System.Threading.Tasks;
 
-namespace devboost.challengeday.Services.Kafka
+namespace devboost.challengeday.Services.Kafka.Interfaces
 {
-    public interface IProduce
+    public interface IKafkaProducer
     {
         Task Operacao(ContaCorrenteRequest contaCorrenteRequest);
     }

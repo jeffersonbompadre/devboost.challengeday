@@ -1,3 +1,5 @@
+using devboost.challengeday.Services.Kafka;
+using devboost.challengeday.Services.Kafka.Interfaces;
 using devboost.challengeday.ProducerAPI.Common.Configurations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -21,6 +23,8 @@ namespace devboost.challengeday.ProducerAPI
             services.AddControllers();
             services.AddApiVersioning();
             services.AddSwaggerConfig();
+
+            services.AddScoped<IKafkaProducer, KafkaProducer>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
