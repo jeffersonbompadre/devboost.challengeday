@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Confluent.Kafka;
+using devboost.challengeday.Kafka.Interfaces;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
@@ -12,10 +13,12 @@ namespace devboost.challengeday.Kafka
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
+        private readonly IConsumer _consumer;
 
-        public Worker(ILogger<Worker> logger)
+        public Worker(ILogger<Worker> logger, IConsumer consumer)
         {
             _logger = logger;
+            _consumer = consumer;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -32,8 +35,7 @@ namespace devboost.challengeday.Kafka
                 Console.WriteLine($"BootstrapServers = {bootstrapServers}");
                 Console.WriteLine($"Topic = {nomeTopic}");
 
-               
-
+             
                 CancellationTokenSource cts = new CancellationTokenSource();
                 Console.CancelKeyPress += (_, e) =>
                 {
@@ -41,31 +43,8 @@ namespace devboost.challengeday.Kafka
                     cts.Cancel();
                 };
 
-                try
-                {
-                    using var consumer = new ConsumerBuilder<Ignore, string>(config).Build();
-                    consumer.Subscribe(nomeTopic);
-
-                    try
-                    {
-                        while (true)
-                        {
-                            var cr = consumer.Consume(cts.Token);
-                            Console.WriteLine(
-                                $"Mensagem lida: {cr.Message.Value}");
-                        }
-                    }
-                    catch (OperationCanceledException)
-                    {
-                        consumer.Close();
-                        Console.WriteLine("Cancelando a execução do consumidor...");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Exceção: {ex.GetType().FullName} | " + $"Mensagem: {ex.Message}");
-                }
-                                              
+                await _consumer.Publish();
+                                                  
                 await Task.Delay(1000, stoppingToken);
             }
         }
