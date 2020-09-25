@@ -1,4 +1,5 @@
 ﻿using Confluent.Kafka;
+using devboost.challengeday.Domain.Commands.Request;
 using devboost.challengeday.Kafka.Config;
 using devboost.challengeday.Kafka.Interfaces;
 using Microsoft.Extensions.Logging;
