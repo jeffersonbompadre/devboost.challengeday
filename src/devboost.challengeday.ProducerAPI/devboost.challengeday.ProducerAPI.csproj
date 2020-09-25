@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\devboost.challengeday.Domain\devboost.challengeday.Domain.csproj" />
+    <ProjectReference Include="..\devboost.challengeday.Services\devboost.challengeday.Services.csproj" />
   </ItemGroup>
+
 
 </Project>

@@ -1,6 +1,6 @@
 using System;
 
-namespace devboost.challengeday.API
+namespace devboost.challengeday.ProducerAPI
 {
     public class WeatherForecast
     {
