@@ -3,15 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devboost.challengeday.Domain", "devboost.challengeday.Domain\devboost.challengeday.Domain.csproj", "{8BEC7886-5760-438B-A77E-98AA353CC0B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devboost.challengeday.Domain", "devboost.challengeday.Domain\devboost.challengeday.Domain.csproj", "{8BEC7886-5760-438B-A77E-98AA353CC0B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devboost.challengeday.Infra", "devboost.challengeday.Infra\devboost.challengeday.Infra.csproj", "{1071E1C8-BB12-4889-8D71-F5D3D5FAA991}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devboost.challengeday.Infra", "devboost.challengeday.Infra\devboost.challengeday.Infra.csproj", "{1071E1C8-BB12-4889-8D71-F5D3D5FAA991}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devboost.challengeday.API", "devboost.challengeday.API\devboost.challengeday.API.csproj", "{A0F2D733-5975-4D87-A5DD-B21FBE7A46AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devboost.challengeday.API", "devboost.challengeday.API\devboost.challengeday.API.csproj", "{A0F2D733-5975-4D87-A5DD-B21FBE7A46AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devboost.challengeday.Services", "devboost.challengeday.Services\devboost.challengeday.Services.csproj", "{4FE0DF13-FDEA-4790-954D-0FCF6C4E20DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devboost.challengeday.Services", "devboost.challengeday.Services\devboost.challengeday.Services.csproj", "{4FE0DF13-FDEA-4790-954D-0FCF6C4E20DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devboost.challengeday.ProducerAPI", "devboost.challengeday.ProducerAPI\devboost.challengeday.ProducerAPI.csproj", "{A6F199B8-DE8F-4748-8187-213278ACC72F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devboost.challengeday.ProducerAPI", "devboost.challengeday.ProducerAPI\devboost.challengeday.ProducerAPI.csproj", "{A6F199B8-DE8F-4748-8187-213278ACC72F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{64874A93-1E55-46E1-82F0-09BD261409B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consumer", "Consumer", "{A7B4B385-3C11-4A9F-B222-943D5EA27D1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Producer", "Producer", "{07ECA594-8BBB-452B-94A7-F41D23B9F15C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +48,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8BEC7886-5760-438B-A77E-98AA353CC0B6} = {64874A93-1E55-46E1-82F0-09BD261409B3}
+		{1071E1C8-BB12-4889-8D71-F5D3D5FAA991} = {64874A93-1E55-46E1-82F0-09BD261409B3}
+		{A0F2D733-5975-4D87-A5DD-B21FBE7A46AA} = {64874A93-1E55-46E1-82F0-09BD261409B3}
+		{4FE0DF13-FDEA-4790-954D-0FCF6C4E20DC} = {64874A93-1E55-46E1-82F0-09BD261409B3}
+		{A6F199B8-DE8F-4748-8187-213278ACC72F} = {07ECA594-8BBB-452B-94A7-F41D23B9F15C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3A673E55-3750-4738-941A-F2A493158FE1}
