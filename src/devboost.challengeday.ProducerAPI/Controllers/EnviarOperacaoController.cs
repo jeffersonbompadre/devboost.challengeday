@@ -1,5 +1,5 @@
 ﻿using devboost.challengeday.Domain.Commands.Request;
-using devboost.challengeday.Services.Kafka;
+using devboost.challengeday.Services.Kafka.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -9,18 +9,17 @@ namespace devboost.challengeday.ProducerAPI.Controllers
     [ApiController]
     public class EnviarOperacaoController : ControllerBase
     {
-        private readonly IProduce produce;
+        private readonly IKafkaProducer _produce;
 
-        public EnviarOperacaoController(IProduce produce)
+        public EnviarOperacaoController(IKafkaProducer produce)
         {
-            this.produce = produce;
+            _produce = produce;
         }
 
-        [HttpPost("operecao")]
+        [HttpPost("Operecao")]
         public async Task<ActionResult> Operecao([FromBody] ContaCorrenteRequest contaCorrenteRequest)
         {
-            await this.produce.Operacao(contaCorrenteRequest);
-
+            await _produce.Operacao(contaCorrenteRequest);
             return Ok("deposito efetuado");
         }
     }
