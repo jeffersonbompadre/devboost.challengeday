@@ -1,4 +1,5 @@
-﻿using devboost.challengeday.Kafka.Interfaces;
+﻿using devboost.challengeday.Domain.Commands.Request;
+using devboost.challengeday.Kafka.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
