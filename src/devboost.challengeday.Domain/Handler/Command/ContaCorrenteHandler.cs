@@ -9,6 +9,12 @@ namespace devboost.challengeday.Domain.Handler.Command
 {
     public class ContaCorrenteHandler : IContaCorrenteHandler
     {
+
+        public Task<decimal> Saldo()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task DepositarValor(ContaCorrenteRequest contaCorrente)
         {
             throw new NotImplementedException();

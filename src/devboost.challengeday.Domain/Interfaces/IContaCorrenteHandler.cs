@@ -9,6 +9,7 @@ namespace devboost.challengeday.Domain.Interfaces
 {
     public interface IContaCorrenteHandler
     {
+        Task<decimal> Saldo();
         Task DepositarValor(ContaCorrenteRequest contaCorrente);
 
         Task SacarValor(ContaCorrenteRequest contaCorrente);
