@@ -8,7 +8,7 @@ namespace devboost.challengeday.Domain.Interfaces
 
     public interface IContaCorrenteRepositorio
     {
-        Task<List<ContaCorrente>> GetAll(ContaCorrente contaCorrente);
+        Task<List<ContaCorrente>> GetAll();
         Task<ContaCorrente> GetById(Guid id);
         Task<ContaCorrente> Save(ContaCorrente contaCorrente);
     }
