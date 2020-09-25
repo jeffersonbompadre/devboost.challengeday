@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\devboost.challengeday.Domain\devboost.challengeday.Domain.csproj" />
+    <ProjectReference Include="..\devboost.challengeday.Infra\devboost.challengeday.Infra.csproj" />
   </ItemGroup>
 
 

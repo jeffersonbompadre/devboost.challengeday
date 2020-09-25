@@ -9,6 +9,12 @@ namespace devboost.challengeday.Domain.Handler.Command
 {
     public class ContaCorrenteHandler : IContaCorrenteHandler
     {
+        readonly IContaCorrenteRepositorio _contaCorrenteRepositorio;
+
+        public ContaCorrenteHandler(IContaCorrenteRepositorio contaCorrenteRepositorio)
+        {
+            _contaCorrenteRepositorio = contaCorrenteRepositorio;
+        }
 
         public Task<decimal> Saldo()
         {
