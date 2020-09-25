@@ -4,9 +4,8 @@ using System.Threading.Tasks;
 
 namespace devboost.challengeday.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ContaCorrenteController : ControllerBase
+    [ApiVersion("1.0")]
+    public class ContaCorrenteController : BaseController
     {
         [HttpGet]
         public async Task<ActionResult> Get()
@@ -15,14 +14,14 @@ namespace devboost.challengeday.API.Controllers
             return Ok("saldo");
         }
 
-        [HttpPost("depositar")]
+        [HttpPost("Depositar")]
         public async Task<ActionResult> Depositar([FromBody] ContaCorrenteRequest contaCorrenteRequest)
         {
             //todo: mandar para o kafka
             return Ok("deposito efetuado");
         }
 
-        [HttpPost("sacar")]
+        [HttpPost("Sacar")]
         public async Task<ActionResult> Sacar([FromBody] ContaCorrenteRequest contaCorrenteRequest)
         {
             //todo: mandar para o kafka
