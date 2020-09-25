@@ -1,4 +1,6 @@
 using devboost.challengeday.API.Common.Configurations;
+using devboost.challengeday.Domain.Handler.Command;
+using devboost.challengeday.Domain.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +23,8 @@ namespace devboost.challengeday.API
             services.AddControllers();
             services.AddApiVersioning();
             services.AddSwaggerConfig();
+
+            services.AddScoped<IContaCorrenteHandler, ContaCorrenteHandler>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
