@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemDefinitionGroup>
@@ -15,12 +15,15 @@
 
   <ItemGroup>
     <PackageReference Include="Confluent.Kafka" Version="1.5.1" />
+    <PackageReference Include="Flunt" Version="1.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.8" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="ServiceStack.Text" Version="5.9.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\devboost.challengeday.Domain\devboost.challengeday.Domain.csproj" />
+    <ProjectReference Include="..\devboost.challengeday.Shared\devboost.challengeday.Shared.csproj" />
   </ItemGroup>
 
 </Project>

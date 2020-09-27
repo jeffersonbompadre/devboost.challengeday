@@ -1,11 +1,9 @@
 ﻿namespace devboost.challengeday.Infra.DataModels
 {
-    using System;
-
-    using devboost.challengeday.Domain.Enum;
-
+    using devboost.challengeday.Shared.Enums;
+    using MongoDB.Bson;
     using MongoDB.Bson.Serialization.Attributes;
-    using MongoDB.Bson.Serialization.IdGenerators;
+    using System;
 
     /// <summary>
     /// The Bank transaction data model.
@@ -16,9 +14,9 @@
         /// Gets or sets the id.
         /// </summary>
 
-        [BsonElement("id")]
-        [BsonId(IdGenerator = typeof(GuidGenerator))]
-        public Guid Id { get; set; }
+        [BsonElement("IdConta")]
+        [BsonId]
+        public ObjectId Id { get; set; }
         
         /// <summary>
         /// Gets or sets the data hora.
@@ -37,5 +35,13 @@
         /// </summary>
         [BsonElement("tipo")]
         public TipoTransacao Tipo { get; set; }
+
+        public OperacaoDataModel(ObjectId id, DateTime? dataHora, decimal valor, TipoTransacao tipo)
+        {
+            Id = id;
+            DataHora = dataHora;
+            Valor = valor;
+            Tipo = tipo;
+        }
     }
 }

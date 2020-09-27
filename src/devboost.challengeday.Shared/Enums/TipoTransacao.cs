@@ -1,4 +1,4 @@
-﻿namespace devboost.challengeday.Domain.Enum
+﻿namespace devboost.challengeday.Shared.Enums
 {
     public enum TipoTransacao
     {

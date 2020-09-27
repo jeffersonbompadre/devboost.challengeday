@@ -1,12 +1,11 @@
 ﻿using Confluent.Kafka;
-using devboost.challengeday.Domain.Commands.Request;
-using devboost.challengeday.Kafka.Config;
 using devboost.challengeday.Kafka.Interfaces;
+using devboost.challengeday.Services.Commands.Request;
+using devboost.challengeday.Services.Kafka.Config;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,15 +13,14 @@ namespace devboost.challengeday.Kafka.Services
 {
     public class Consumer : IConsumer
     {
-
         private readonly ILogger<Consumer> _logger;
-        private readonly KafkaConfig _kafkaConfig;
+        private readonly IOptions<KafkaConfig> _options;
         private readonly ITransactionHttpFactory _transactionHttpFactory;
 
-        public Consumer(ILogger<Consumer> logger, KafkaConfig kafkaConfig, ITransactionHttpFactory transactionHttpFactory)
+        public Consumer(ILogger<Consumer> logger, IOptions<KafkaConfig> options, ITransactionHttpFactory transactionHttpFactory)
         {
             _logger = logger;
-            _kafkaConfig = kafkaConfig;
+            _options = options;
             _transactionHttpFactory = transactionHttpFactory;
         }
 
@@ -30,8 +28,8 @@ namespace devboost.challengeday.Kafka.Services
         {
             var config = new ConsumerConfig
             {
-                BootstrapServers = _kafkaConfig.UrlBase,
-                GroupId = $"{_kafkaConfig.Topic}-group-0",
+                BootstrapServers = _options.Value.UrlBase,
+                GroupId = $"{_options.Value.Topic}-group-0",
                 AutoOffsetReset = AutoOffsetReset.Earliest
             };
 
@@ -40,7 +38,7 @@ namespace devboost.challengeday.Kafka.Services
             try
             {
                 using var consumer = new ConsumerBuilder<Ignore, string>(config).Build();
-                consumer.Subscribe(_kafkaConfig.Topic);
+                consumer.Subscribe(_options.Value.Topic);
 
                 try
                 {
@@ -50,8 +48,10 @@ namespace devboost.challengeday.Kafka.Services
 
                         var @event = JsonConvert.DeserializeObject<OperacaoRequest>(cr.Message.Value);
 
-                       await  _transactionHttpFactory.Trasaction(@event);
-                        
+                        Console.WriteLine(cr.Message.Value);
+
+                        await  _transactionHttpFactory.Trasaction(@event);
+
                     }
                 }
                 catch (OperationCanceledException)

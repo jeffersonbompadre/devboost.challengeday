@@ -1,8 +1,9 @@
 namespace devboost.challengeday.API
 {
     using devboost.challengeday.API.Common.Configurations;
+    using devboost.challengeday.Infra.Data;
     using devboost.challengeday.IoC;
-
+    using devboost.challengeday.Shared.Middleware;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
@@ -20,6 +21,8 @@ namespace devboost.challengeday.API
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseMiddleware(typeof(ErrorHandlerMiddleware));
+
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
             app.UseHttpsRedirection();
@@ -37,6 +40,8 @@ namespace devboost.challengeday.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<MongoDbConfig>(Configuration.GetSection("Mongo"));
+            services.AddTransient<BankMongoDbContext>();
             services.AddControllers();
             services.AddApiVersioning();
             services.AddSwaggerConfig();

@@ -17,7 +17,7 @@
         /// <returns>
         /// The <see cref="Task{List}"/>.
         /// </returns>
-        Task<List<Operacao>> GetAll();
+        Task<List<Operacao>> GetAllAsync();
 
         /// <summary>
         /// The get by id.
@@ -28,7 +28,7 @@
         /// <returns>
         /// The <see cref="Task{List}"/>.
         /// </returns>
-        Task<Operacao> GetById(Guid id);
+        Task<Operacao> GetByIdAsync(Guid id);
 
         /// <summary>
         /// The save.
@@ -39,6 +39,6 @@
         /// <returns>
         /// The <see cref="Task{Operacao}"/>.
         /// </returns>
-        Task<Operacao> Save(Operacao operacao);
+        Task<Operacao> AddAsync(Operacao operacao);
     }
 }

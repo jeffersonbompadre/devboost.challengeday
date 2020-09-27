@@ -1,13 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
-using devboost.challengeday.Kafka.Config;
 using devboost.challengeday.Kafka.Interfaces;
 using devboost.challengeday.Kafka.Services;
+using devboost.challengeday.Services.Kafka.Config;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace devboost.challengeday.Kafka
 {
@@ -23,10 +19,14 @@ namespace devboost.challengeday.Kafka
                 .ConfigureServices((hostContext, services) =>
                 {                
                     services.Configure<KafkaConfig>(hostContext.Configuration.GetSection("Kafka"));
+                    services.AddHttpClient("contacorrente", opts =>
+                    {
+                        opts.BaseAddress = new Uri(hostContext.Configuration["ClinteHttp:UrlBase"]);
+                    });
                     services.AddHttpClient();
                     services.AddHostedService<Worker>();
-                    services.AddScoped<IConsumer,Consumer>();
-                    services.AddScoped<ITransactionHttpFactory,TransactionHttpFactory>();
+                    services.AddTransient<IConsumer,Consumer>();
+                    services.AddTransient<ITransactionHttpFactory,TransactionHttpFactory>();
 
                 });
     }

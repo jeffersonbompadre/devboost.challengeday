@@ -1,10 +1,11 @@
-﻿using devboost.challengeday.Domain.Commands.Request;
+﻿using devboost.challengeday.Shared.Event;
+using devboost.challengeday.Shared.Response;
 using System.Threading.Tasks;
 
 namespace devboost.challengeday.Services.Kafka.Interfaces
 {
     public interface IKafkaProducer
     {
-        Task Operacao(OperacaoRequest operacaoRequest);
+        Task<ResponseResult> OperacaoAsync(CriadoOperacaoEvento criadoOperacaoEvento);
     }
 }

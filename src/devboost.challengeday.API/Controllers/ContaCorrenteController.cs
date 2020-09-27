@@ -3,66 +3,81 @@
     using System;
     using System.Threading.Tasks;
 
-    using devboost.challengeday.Domain.Commands.Request;
-    using devboost.challengeday.Domain.Interfaces;
+  
+    using devboost.challengeday.Services.Commands.Request;
+    using devboost.challengeday.Services.Interfaces;
 
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ApiVersion("1.0")]
     public class ContaCorrenteController : BaseController
     {
-        private readonly IOperacaoService _OperacaoService;
+        private readonly IOperacaoService _operacaoService;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="operacaoService"></param>
         public ContaCorrenteController(IOperacaoService operacaoService)
         {
-            this._OperacaoService = operacaoService;
+            _operacaoService = operacaoService;
         }
 
-        [HttpPost("Depositar")]
-        public async Task<ActionResult> Depositar([FromBody] OperacaoRequest operacaoRequest)
-        {
-            try
-            {
-                
-                var result = await this._OperacaoService.Deposito(operacaoRequest);
-
-                return this.Ok($"deposito efetuado, saldo Atual -> {result}");
-            }
-            catch (Exception e)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, e.Message);
-            }
-        }
-
+        /// <summary>
+        /// Solicita o saldo
+        /// </summary>
+        /// <remarks>
+        /// </remarks>        
         [HttpGet]
-        public async Task<ActionResult> Get()
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> GetAsync()
         {
-            try
-            {
-                var result = await this._OperacaoService.Saldo();
+            var result = await _operacaoService.SaldoAsync();
 
-                return this.Ok($"saldo atual -> {result}");
-            }
-            catch (Exception e)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, e.Message);
-            }
+            if (result.HasFails) return BadRequest(result.Fails);
+
+            return Ok(result.Data);
         }
 
-        [HttpPost("Sacar")]
-        public async Task<ActionResult> Sacar([FromBody] OperacaoRequest operacaoRequest)
+        /// <summary>
+        /// Criar Operação 
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /api/operacaoasync
+        ///     {
+        ///        "operação": 1,
+        ///        "valor": 999,
+        ///        "Id":    
+        ///     }
+        ///     
+        ///     Operacao 
+        ///      {
+        ///       
+        ///        1 Saque
+        ///        2 Deposito
+        ///      }
+        /// </remarks>        
+        /// <param name="operacaoRequest"></param>  
+        [HttpPost("Operacao")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> OperacaoAsync([FromBody] OperacaoRequest operacaoRequest)
         {
-            try
-            {
-                var result = await this._OperacaoService.Saque(operacaoRequest);
+            var result = await _operacaoService.OperacaoAsync(operacaoRequest);
 
-                return this.Ok($"saque efetuado, saldo Atual -> {result}");
-            }
-            catch (Exception e)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, e.Message);
-            }
+            if (result.HasFails) return BadRequest(result.Fails);
+
+            return this.Ok(result.Data);
+           
         }
     }
 }

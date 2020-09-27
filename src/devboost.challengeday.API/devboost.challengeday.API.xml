@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>devboost.challengeday.API</name>
+    </assembly>
+    <members>
+        <member name="T:devboost.challengeday.API.Controllers.ContaCorrenteController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:devboost.challengeday.API.Controllers.ContaCorrenteController.#ctor(devboost.challengeday.Services.Interfaces.IOperacaoService)">
+            <summary>
+            
+            </summary>
+            <param name="operacaoService"></param>
+        </member>
+        <member name="M:devboost.challengeday.API.Controllers.ContaCorrenteController.GetAsync">
+            <summary>
+            Solicita o saldo
+            </summary>
+            <remarks>
+            </remarks>        
+        </member>
+        <member name="M:devboost.challengeday.API.Controllers.ContaCorrenteController.OperacaoAsync(devboost.challengeday.Services.Commands.Request.OperacaoRequest)">
+             <summary>
+             Criar Operação 
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/operacaoasync
+                 {
+                    "operação": 1,
+                    "valor": 999,
+                    "Id":    
+                 }
+                 
+                 Operacao 
+                  {
+                   
+                    1 Saque
+                    2 Deposito
+                  }
+             </remarks>        
+             <param name="operacaoRequest"></param>  
+        </member>
+    </members>
+</doc>

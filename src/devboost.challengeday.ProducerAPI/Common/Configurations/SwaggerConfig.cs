@@ -1,5 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using devboost.challengeday.ProducerAPI.Common.Filters;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace devboost.challengeday.ProducerAPI.Common.Configurations
 {
@@ -22,6 +26,13 @@ namespace devboost.challengeday.ProducerAPI.Common.Configurations
                     Name = "Authorization",
                     Type = SecuritySchemeType.ApiKey
                 });
+
+                options.OperationFilter<AuthOperationFilter>();
+
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                options.IncludeXmlComments(xmlPath);
             });
 
             return services;

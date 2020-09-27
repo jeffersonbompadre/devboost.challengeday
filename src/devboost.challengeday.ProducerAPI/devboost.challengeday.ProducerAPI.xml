@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>devboost.challengeday.ProducerAPI</name>
+    </assembly>
+    <members>
+        <member name="T:devboost.challengeday.ProducerAPI.Controllers.EnviarOperacaoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:devboost.challengeday.ProducerAPI.Controllers.EnviarOperacaoController.#ctor(devboost.challengeday.Services.Kafka.Interfaces.IKafkaProducer)">
+            <summary>
+            
+            </summary>
+            <param name="produce"></param>
+        </member>
+        <member name="M:devboost.challengeday.ProducerAPI.Controllers.EnviarOperacaoController.OperecaoAsync(devboost.challengeday.Shared.Event.CriadoOperacaoEvento)">
+             <summary>
+             Criar transação 
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/operacaoasync
+                 {
+                    "operação": 1,
+                    "valor": 999
+                 }
+                  
+                 Operacao 
+                 {
+                  
+                   1 Saque
+                   2 Deposito
+                 }
+             </remarks>        
+             <param name="criadoOperacaoEvento"></param>  
+        </member>
+    </members>
+</doc>

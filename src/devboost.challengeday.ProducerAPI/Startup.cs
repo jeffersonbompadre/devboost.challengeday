@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using devboost.challengeday.Services.Kafka.Config;
+using devboost.challengeday.Shared.Middleware;
 
 namespace devboost.challengeday.ProducerAPI
 {
@@ -23,12 +25,15 @@ namespace devboost.challengeday.ProducerAPI
             services.AddControllers();
             services.AddApiVersioning();
             services.AddSwaggerConfig();
-
+            services.Configure<KafkaConfig>(Configuration.GetSection("Kafka"));
             services.AddScoped<IKafkaProducer, KafkaProducer>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            app.UseMiddleware(typeof(ErrorHandlerMiddleware));
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

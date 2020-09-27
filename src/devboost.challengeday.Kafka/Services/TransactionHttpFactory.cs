@@ -1,4 +1,4 @@
-﻿using devboost.challengeday.Domain.Commands.Request;
+﻿using devboost.challengeday.Services.Commands.Request;
 using devboost.challengeday.Kafka.Interfaces;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -17,7 +17,7 @@ namespace devboost.challengeday.Kafka.Services
 
         public async Task<bool> Trasaction(OperacaoRequest contacorrenteRequest)
         {
-            var response = await _client.PostAsJsonAsync("/api/operacao", contacorrenteRequest);
+            var response = await _client.PostAsJsonAsync("/api/v1/ContaCorrente/Operacao", contacorrenteRequest);
             return response.EnsureSuccessStatusCode().IsSuccessStatusCode;
         }
     }

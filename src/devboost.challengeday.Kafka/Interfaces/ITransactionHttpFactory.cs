@@ -1,7 +1,4 @@
-﻿using devboost.challengeday.Domain.Commands.Request;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using devboost.challengeday.Services.Commands.Request;
 using System.Threading.Tasks;
 
 namespace devboost.challengeday.Kafka.Interfaces

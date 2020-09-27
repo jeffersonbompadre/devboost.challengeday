@@ -1,14 +1,18 @@
-﻿using System;
+﻿using Flunt.Notifications;
+using MongoDB.Bson;
+using System;
 
 namespace devboost.challengeday.Domain.Models
 {
-    public class Entidade
+    public abstract class Entidade:Notifiable
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; protected set; }
 
         protected Entidade()
         {
             Id = Guid.NewGuid();
         }
+
+        public abstract void Validate();
     }
 }

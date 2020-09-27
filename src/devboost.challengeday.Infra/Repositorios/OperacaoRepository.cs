@@ -1,31 +1,25 @@
 ﻿namespace devboost.challengeday.Infra.Repositorios
 {
+    using devboost.challengeday.Domain.Interfaces;
+    using devboost.challengeday.Domain.Models;
+    using devboost.challengeday.Infra.Data;
+    using devboost.challengeday.Infra.DataModels;
+    using MongoDB.Bson;
+    using MongoDB.Driver;
+    using ServiceStack;
+    using ServiceStack.Text;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using devboost.challengeday.Domain.Commands.Request;
-    using devboost.challengeday.Domain.Interfaces;
-    using devboost.challengeday.Domain.Models;
-    using devboost.challengeday.Infra.DataModels;
-
-    using MongoDB.Bson;
-    using MongoDB.Driver;
-
-    using ServiceStack;
 
     /// <summary>
     /// The Bank transaction repository.
     /// </summary>
     public class OperacaoRepository : IOperacaoRepository
     {
-        /// <summary>
-        /// The conta corrente collection.
-        /// </summary>
-        private readonly IMongoCollection<OperacaoDataModel> _ContaCorrenteCollection;
 
-        /// <summary>
-        /// The _filter def.
-        /// </summary>
+        private readonly BankMongoDbContext _bankMongoDbContext;
+               
         private FilterDefinitionBuilder<OperacaoDataModel> _filterDef => Builders<OperacaoDataModel>.Filter;
 
         /// <summary>
@@ -34,9 +28,9 @@
         /// <param name="database">
         /// The database.
         /// </param>
-        public OperacaoRepository(IMongoDatabase database)
-        {
-            _ContaCorrenteCollection = database.GetCollection<OperacaoDataModel>("Operacao"); ;
+        public OperacaoRepository(BankMongoDbContext bankMongoDbContext) {
+
+            _bankMongoDbContext = bankMongoDbContext;
         }
 
         /// <summary>
@@ -45,11 +39,10 @@
         /// <returns>
         /// The <see cref="Task"/>.
         /// </returns>
-        public async Task<List<Operacao>> GetAll()
+        public async Task<List<Operacao>> GetAllAsync()
         {
-            var list = await _ContaCorrenteCollection.Find(_ => true).ToListAsync();
-
-            return list.ConvertTo<List<Operacao>>();
+            var list = await _bankMongoDbContext.Operacao.Find(_ => true).ToListAsync();
+            return list;
 
         }
 
@@ -62,15 +55,11 @@
         /// <returns>
         /// The <see cref="Task"/>.
         /// </returns>
-        public async Task<Operacao> GetById(Guid id)
+        [Obsolete]
+        public async Task<Operacao> GetByIdAsync(Guid id)
         {
-            var bsonId = new BsonBinaryData(id);
-
-            var filter = _filterDef.Eq(_ => _.Id, bsonId);
-
-            var p = (await _ContaCorrenteCollection.FindAsync(filter)).FirstOrDefault();
-
-            return p.ConvertTo<Operacao>();
+           var p = (await _bankMongoDbContext.Operacao.FindAsync(x => x.Id == id)).FirstOrDefault();
+           return p;
 
         }
 
@@ -83,13 +72,10 @@
         /// <returns>
         /// The <see cref="Task"/>.
         /// </returns>
-        public async Task<Operacao> Save(Operacao operacao)
+        public async Task<Operacao> AddAsync(Operacao operacao)
         {
-            var model = operacao.ConvertTo<OperacaoDataModel>();
-
-
-            await _ContaCorrenteCollection.InsertOneAsync(model);
-            return model.ConvertTo<Operacao>();
+            await _bankMongoDbContext.Operacao.InsertOneAsync(operacao);
+            return operacao;
 
         }
     }

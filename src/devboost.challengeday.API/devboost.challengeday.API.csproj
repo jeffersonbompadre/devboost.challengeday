@@ -4,6 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\gemir\source\repos\Novo\devboost.challengeday\src\devboost.challengeday.API\devboost.challengeday.API.xml</DocumentationFile>
+  </PropertyGroup>
+
 
   <ItemDefinitionGroup>
     <PackageReference>
@@ -15,18 +19,23 @@
   </ItemDefinitionGroup>
 
   <ItemGroup>
+    <PackageReference Include="Flunt" Version="1.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="4.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="4.1.1" />
     <PackageReference Include="MongoDB.Driver" Version="2.11.2" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     <PackageReference Include="Confluent.Kafka" Version="1.5.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="NWebsec.AspNetCore.Middleware" Version="3.0.0" />
     <PackageReference Include="ServiceStack.Text" Version="5.9.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\devboost.challengeday.Domain\devboost.challengeday.Domain.csproj" />
+    <ProjectReference Include="..\devboost.challengeday.Infra\devboost.challengeday.Infra.csproj" />
     <ProjectReference Include="..\devboost.challengeday.IoC\devboost.challengeday.IoC.csproj" />
+    <ProjectReference Include="..\devboost.challengeday.Services\devboost.challengeday.Services.csproj" />
+    <ProjectReference Include="..\devboost.challengeday.Shared\devboost.challengeday.Shared.csproj" />
   </ItemGroup>
 
 
