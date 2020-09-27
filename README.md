@@ -11,7 +11,7 @@ Este é um projeto da formação DevBoost do Itaú para trabalharmos com tecnolo
 - Swagger UI with JWT support
 - Microsserviços são independentes
 - Kafka com Work Service para comunicação entre os serviços
-- HttpClient para comunicação das Azure Functions com os serviços
+- HttpClient para comunicação dos work services com os serviços
 
 ## Arquitetura
 
